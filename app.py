@@ -15,30 +15,6 @@ except FileNotFoundError:
     st.error("File model atau transformer tidak ditemukan. Pastikan semua file .pkl berada dalam folder yang sama dengan app.py.")
     st.stop()
 
-# --- Mapping kategori ---
-fuel_mapping = {
-    'Diesel': 0,
-    'Petrol': 1,
-    'CNG': 2,
-    'LPG': 3,
-    'Electric': 4
-}
-seller_type_mapping = {
-    'Individual': 0,
-    'Dealer': 1,
-    'Trustmark Dealer': 2
-}
-transmission_mapping = {
-    'Manual': 0,
-    'Automatic': 1
-}
-owner_mapping = {
-    'Test Drive Car': 0,
-    'First Owner': 1,
-    'Second Owner': 2,
-    'Third Owner': 3,
-    'Fourth & Above Owner': 4
-}
 
 # --- Tampilan Aplikasi ---
 st.title('Prediksi Harga Mobil Bekas')
@@ -98,10 +74,10 @@ if st.sidebar.button('Prediksi Harga Mobil'):
 
         # Konversi kategori
         age = 2025 - year_input
-        fuel_encoded = fuel_mapping[fuel_type_input]
-        seller_type_encoded = seller_type_mapping[seller_type_input]
-        transmission_encoded = transmission_mapping[transmission_type_input]
-        owner_encoded = owner_mapping[owner_status_input]
+        fuel_encoded = fuel_type_input
+        seller_type_encoded = seller_type_input
+        transmission_encoded = transmission_type_input
+        owner_encoded = owner_status_input
         name_encoded = car_name_input
 
         # Transformasi PowerTransformer
