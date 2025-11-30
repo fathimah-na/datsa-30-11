@@ -25,10 +25,13 @@ st.sidebar.header('Input Detail Mobil')
 # --- Input pengguna ---
 year_input = st.sidebar.number_input('Tahun Mobil', min_value=1990, max_value=2024, value=2015, step=1)
 km_driven_input = st.sidebar.number_input('Jarak Tempuh (km)', min_value=0, max_value=1000000, value=50000, step=1000)
-fuel_type_input = st.sidebar.selectbox('Jenis Bahan Bakar', list(fuel_mapping.keys()))
-seller_type_input = st.sidebar.selectbox('Tipe Penjual', list(seller_type_mapping.keys()))
-transmission_type_input = st.sidebar.selectbox('Transmisi', list(transmission_mapping.keys()))
-owner_status_input = st.sidebar.selectbox('Jumlah Pemilik Sebelumnya', list(owner_mapping.keys()))
+fuel_type_input = st.sidebar.selectbox('Jenis Bahan Bakar', ['Diesel', 'Petrol', 'CNG', 'LPG', 'Electric'])
+seller_type_input = st.sidebar.selectbox('Tipe Penjual', ['Individual', 'Dealer', 'Trustmark Dealer'])
+transmission_type_input = st.sidebar.selectbox('Transmisi', ['Manual', 'Automatic'])
+owner_status_input = st.sidebar.selectbox('Jumlah Pemilik Sebelumnya', [
+    'Test Drive Car', 'First Owner', 'Second Owner', 'Third Owner', 'Fourth & Above Owner'
+])
+
 # Daftar merek mobil (autocomplete)
 car_brands = [
     "Maruti", "Hyundai", "Mahindra", "Tata", "Honda", "Ford",
